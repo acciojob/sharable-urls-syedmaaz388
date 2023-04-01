@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>URL Generator</title>
+  </head>
   <body>
-    <script type="text/javascript" src="./script.js">
-</script>
-  </body>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="year">Year:</label>
+      <input type="number" id="year" name="year"><br><br>
+      <button type="button" id="button">Submit</button>
+    </form>
+    <h3 id="url">https://localhost:8080/</h3>
+    <script>
+      const button = document.querySelector('#button');
+      const url = document.querySelector('#url');
 
+      button.addEventListener('click', () => {
+        const name = document.querySelector('#name').value;
+        const year = document.querySelector('#year').value;
+        const queryString = `?name=${name}&year=${year}`;
+        url.textContent = `https://localhost:8080/${queryString}`;
+      });
+    </script>
+  </body>
 </html>
